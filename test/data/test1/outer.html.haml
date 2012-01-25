@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Foo
+
+    / Stylesheets here
+    = yield :stylesheets
+
+    / Javascripts here
+    = yield :javascripts
+  %body
+    = content_for :javascripts do
+      :javascript
+        function mystuff() {}
+    = partial 'inner'
