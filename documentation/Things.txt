@@ -1,0 +1,12 @@
+Panorama::Template
+* string    the template string that is processed
+* file      the file the template comes from, in case of a string, this is "(String)"
+* line      the starting line, defaults to 1
+
+Panorama::RenderContext
+* ::assimilate    Clones instance variables from one object into another, used for present
+* find_template   Finds a template
+* content_for     Provide content for another section of the rendering
+* partial         Inserts a partial at that place
+* present         Inserts a partial (derived from an object)
+* method_missing  Delegates all methods to the scope - if a scope is present

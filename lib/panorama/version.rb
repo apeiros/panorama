@@ -7,5 +7,5 @@ rescue LoadError
 end
 
 module Panorama
-  Version = Gem::Version.new("0.0.1")
+  Version = Gem::Version.new("0.0.2")
 end
