@@ -52,13 +52,11 @@ module Panorama
     end
 
     def self.render(template, scope, locals, options)
-      context     = new(scope, nil, options)
+      content_for = ContentFor.new
+      context     = new(scope, content_for, options)
       temporary   = context.present(template, locals)
-      content_for = IvarGet.bind(context).call(:@_panorama_content_for)
 
-      temporary.gsub(content_for.regex) { |key|
-        content_for[key]
-      }
+      content_for.apply(temporary)
     end
 
     alias __class__ class
@@ -99,7 +97,7 @@ module Panorama
       ""
     end
 
-    def yielded(name, *args)
+    def yielded(name=nil, *args)
       @_panorama_content_for.add_yield(name, *args)
     end
 

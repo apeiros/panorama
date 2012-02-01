@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name                      = "panorama"
-  s.version                   = "0.0.1"
+  s.version                   = "0.0.2"
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1")
   s.authors                   = "Stefan Rusterholz"
   s.homepage                  = "http://github.com/apeiros/panorama"

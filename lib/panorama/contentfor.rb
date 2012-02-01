@@ -3,6 +3,9 @@
 
 
 module Panorama
+
+  # Nil is a valid name
+  # For everything else, name.to_s is used
   class ContentFor
     MaxRand = 1<<128
 
@@ -20,7 +23,7 @@ module Panorama
     end
 
     def key(name)
-      "#{@prefix}#{name}"
+      name ? "#{@prefix}n_#{name}" : "#{@prefix}main"
     end
 
     def add_content(name, string)
@@ -33,6 +36,12 @@ module Panorama
       @yieldings[key] = [name, args]
 
       key
+    end
+
+    def apply(text)
+      text.gsub(@regex) { |key|
+        self[key]
+      }
     end
   end
 end

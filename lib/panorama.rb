@@ -16,7 +16,7 @@ module Panorama
     Finder.new(directories, suffixes).find(name)
   end
 
-  def self.render_view(path, locals={})
+  def self.render_template(path, locals={})
     Template.file(path).render(locals)
   end
 
